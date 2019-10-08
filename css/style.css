@@ -166,3 +166,72 @@ a {
 	display: block;
 	margin: 0 auto;
 }
+
+.reg-form__form label>a {
+	color: #558CB7;
+}
+
+.reg-form__password-rules {
+	color: #777777;
+	font-family: "Roboto-Bold", Arial, sans-serif;
+	font-weight: bold;
+}
+
+.reg-form__rules-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.reg-form__rules-list li {
+	position: relative;
+	color: #777777;
+	padding-left: 20px;
+}
+
+.reg-form__rules-list li::before {
+	position: absolute;
+	content: "";
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 0;
+	box-sizing: border-box;
+	border: 1px solid #777;
+	border-radius: 50%;
+}
+
+li.error {
+	color: #9F2B11;
+}
+
+li.error::before {
+	border-color: #9F2B11;
+}
+
+li.error::after, li.success::after {
+	position: absolute;
+	content: "";
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 0;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+li.error::after {
+	background-image: url(../img/error-icon.svg);
+}
+
+li.success::after {
+	background-image: url(../img/success-icon.svg);
+}
+
+li.success {
+	color: #007B1B;
+}
+
+li.success::before {
+	border-color: #007B1B;
+}

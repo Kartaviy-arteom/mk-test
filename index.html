@@ -24,12 +24,12 @@
 	  					<input id="user-name" name="user-name" type="text" required minlength="3" maxlength="40" pattern="[a-zA-z]+[0-9a-zA-z/_/;]+">
 	  					<label for="userPassword">Пароль</label>
 	  					<input id="userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
-	  					<span>Пароль должен содержать:</span>
-	  					<ul>
-	  						<li class="default">от 6 до 32 символов </li>
-	  						<li class="default">цифру</li>
-	  						<li class="default">заглавную и строчкую буквы</li>
-	  						<li class="default">Пароль не должен совпадать с Никнеймом</li>
+	  					<span class="reg-form__password-rules">Пароль должен содержать:</span>
+	  					<ul class="reg-form__rules-list">
+	  						<li>от 6 до 32 символов </li>
+	  						<li class="error">цифру</li>
+	  						<li class="success">заглавную и строчкую буквы</li>
+	  						<li>Пароль не должен совпадать с Никнеймом</li>
 						</ul>
 						<label for="repeat-userPassword">Пароль</label>
 	  					<input id="repeat-userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
