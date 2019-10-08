@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Smart Device</title>
+  <link rel="preload" href="fonts/Roboto-Bold.woff2" as="font">
+  <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+	<body>
+	  	<section class="reg-form">
+	  		<h1 class="visually-hidden">Зарегистрируйтесь на нашем прекрасном сайте, для получения новых плюшек</h1>
+	  		<a class="reg-form__create-account btn" href="#">Регистрация</a>
+	  		<div class="reg-form__form">
+	  			<form method="post" action="#" autocomplete="off">
+	  				<fieldset>
+	  					<legend>Регистрация</legend>
+	  					<label for="email">E-mail</label>
+	  					<input id="email" name="user-email" type="email" required>
+	  					<label for="user-name">Никнейм</label>
+	  					<input id="user-name" name="user-name" type="text" required minlength="3" maxlength="40" pattern="[a-zA-z]+[0-9a-zA-z/_/;]+">
+	  					<label for="userPassword">Пароль</label>
+	  					<input id="userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
+	  					<span>Пароль должен содержать:</span>
+	  					<ul>
+	  						<li class="default">от 6 до 32 символов </li>
+	  						<li class="default">цифру</li>
+	  						<li class="default">заглавную и строчкую буквы</li>
+	  						<li class="default">Пароль не должен совпадать с Никнеймом</li>
+						</ul>
+						<label for="repeat-userPassword">Пароль</label>
+	  					<input id="repeat-userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
+	  					<span>Введённые пароли не совпадают</span>
+	  					<input type="checkbox" name="assent" id="assent" required checked>
+	      				<label for="assent">Я принимаю условия <a href=#>Пользовательского соглашения</a></label>
+	      				<input class="btn btn--default" type="submit" value="Зарегистрироваться">
+	  				</fieldset>
+				</form>	
+				<button class="popup__button-close" type="button" aria-label="Закрыть окно"></button>
+	  		</div>
+		</section> 
+	</body>
+</html>
