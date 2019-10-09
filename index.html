@@ -13,15 +13,16 @@
 	<body>
 	  	<section class="reg-form">
 	  		<h1 class="visually-hidden">Зарегистрируйтесь на нашем прекрасном сайте, для получения новых плюшек</h1>
-	  		<a class="reg-form__create-account btn" href="#">Регистрация</a>
-	  		<div class="reg-form__form">
+	  		<a class="reg-form__create-account btn show" href="#">Регистрация</a>
+	  		<div class="reg-form__form-container">
 	  			<form method="post" action="#" autocomplete="off">
 	  				<fieldset>
 	  					<legend>Регистрация</legend>
 	  					<label for="email">E-mail</label>
 	  					<input id="email" name="user-email" type="email" required>
 	  					<label for="user-name">Никнейм</label>
-	  					<input id="user-name" name="user-name" type="text" required minlength="3" maxlength="40" pattern="[a-zA-z]+[0-9a-zA-z/_/;]+">
+	  					<input class="error-message" id="user-name" name="user-name" type="text" required minlength="3" maxlength="40" pattern="[a-zA-z]+[0-9a-zA-z/_/;]+">
+              <p></p>
 	  					<label for="userPassword">Пароль</label>
 	  					<input id="userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
 	  					<span class="reg-form__password-rules">Пароль должен содержать:</span>
@@ -29,18 +30,19 @@
 	  						<li>от 6 до 32 символов </li>
 	  						<li class="error">цифру</li>
 	  						<li class="success">заглавную и строчкую буквы</li>
-	  						<li>Пароль не должен совпадать с Никнеймом</li>
+	  						<li class="reg-form__coincidence">Пароль не должен совпадать с Никнеймом</li>
 						</ul>
-						<label for="repeat-userPassword">Пароль</label>
+						<label for="repeat-userPassword">Пароль ещё раз</label>
 	  					<input id="repeat-userPassword" type="password" required minlength="6" maxlength="32" pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
-	  					<span>Введённые пароли не совпадают</span>
+	  					<span class="reg-form__warning">Введённые пароли не совпадают</span>
 	  					<input type="checkbox" name="assent" id="assent" required checked>
 	      				<label for="assent">Я принимаю условия <a href=#>Пользовательского соглашения</a></label>
-	      				<input class="btn btn--default" type="submit" value="Зарегистрироваться">
+	      				<input class="btn btn--default" type="submit" value="Зарегистрироваться" >
 	  				</fieldset>
-				</form>	
+				</form>
 				<button class="popup__button-close" type="button" aria-label="Закрыть окно"></button>
-	  		</div>
-		</section> 
+  		</div>
+		</section>
+    <script src="js/form.js"></script>
 	</body>
 </html>
