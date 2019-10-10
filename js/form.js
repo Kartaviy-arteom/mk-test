@@ -15,14 +15,19 @@
 
   var lastTimeout;
 
-  userNameField.addEventListener('input', function(evt) {
-    var input = evt.currentTarget;
 
+  var onUserNameFieldInput = function (evt) {
+    console.log(evt.currentTarget);
+  }
+  userNameField.addEventListener('input', onUserNameFieldInput); /*function(evt) {
+    var input = evt.currentTarget;
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     }
 
     lastTimeout = window.setTimeout(function () {
+
+
       errorMessage.textContent ='';
       if (input.validity.patternMismatch) {
         errorMessage.textContent = errorMessage.textContent + 'Никнейм может содержать латинские буквы, цифры и символы "_" и ";"';
@@ -40,13 +45,21 @@
         errorMessage.textContent = errorMessage.textContent + 'Должен начинаться с буквы';
       }
 
-      if (input.checkValidity() == false) {input.setCustomValidity(errorMessage.textContent);
-      }
-
       if (/[^0-9a-zA-z/_/;]+/.test(input.value)) {
         input.textContent = input.textContent + 'Что за дивный символ... ';
       }
-    }, 3000);
+
+      if (input.validity.valid == false) {input.setCustomValidity(errorMessage.textContent);
+      }
+         }, 3000);
+  });*/
+
+  userNameField.addEventListener('keyup', function(evtV) {
+    var input = evtV.currentTarget;
+    console.log(input.validity.valid);
+    if (input.validity.valid) {
+      errorMessage.textContent ='';
+    }
   });
 
   var onFormCloseBtnClick = function () {
