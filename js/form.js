@@ -9,11 +9,33 @@
   var errorMessage = form.querySelector('.reg-form__form-container input.error-message + p');
   var userNameField = form.querySelector('#user-name');
   var userMailField = form.querySelector('#email');
+  var userPasswordField = form.querySelector('#userPassword');
+  var coincidence = form.querySelector('.reg-form__coincidence');
+  var lastTimeout;
 
 
   userNameField.setCustomValidity('Поле обязательно для заполнения и может содержать только: От 3 до 40 символов, латинские буквы, цифры и символы "_" и ";". ');
+  userPasswordField.setCustomValidity('Пароль должен содержать: От 6 до 32 символов, минимум по одной заглавной и строчной букве, цифру, не должен совпадать с ником или почтовым адресом');
 
-  var lastTimeout;
+  userPasswordField.addEventListener('input', function(evtPasswordInput) {
+    if (lastTimeout) {
+      clearTimeout(lastTimeout);
+    };
+    var input = evtV.currentTarget;
+    input.setCustomValidity('');
+    if (input.validity.valid) {
+      errorMessage.textContent ='';
+    };
+
+    else {
+      lastTimeout = setTimeout(function () {
+        if (input.value === userNameField.value) {
+          coincidence.classList.add('error');
+        }
+      }, 1000);
+    }
+  });
+
 
 
   var onUserNameFieldInput = function (evt) {
@@ -36,30 +58,30 @@
       lastTimeout = setTimeout(function () {
 
 
-      errorMessage.textContent ='';
+      errorMessage.innerHTML ='';
       if (input.validity.patternMismatch) {
-        errorMessage.textContent = errorMessage.textContent + 'Никнейм может содержать латинские буквы, цифры и символы "_" и ";"';
+        errorMessage.innerHTML = errorMessage.innerHTML + 'Никнейм может содержать латинские буквы, цифры и символы "_" и ";"' + "<br>";
       };
 
       if (input.minLength > input.value.length) {
-        errorMessage.textContent = errorMessage.textContent + 'Слишком короткий';
+        errorMessage.innerHTML = errorMessage.innerHTML + 'Слишком короткий' + "<br>";
       }
 
       if (input.maxLength < input.value.length) {
-        errorMessage.textContent = errorMessage.textContent + 'Очень длинный';
+        errorMessage.innerHTML = errorMessage.innerHTML + 'Очень длинный' + "<br>";
       }
 
       if (!/^[a-zA-z]+/.test(input.value)) {
-        errorMessage.textContent = errorMessage.textContent + 'Должен начинаться с буквы';
+        errorMessage.innerHTML = errorMessage.innerHTML + 'Должен начинаться с буквы' + "<br>";
       }
 
       if (/[^0-9a-zA-z/_/;]+/.test(input.value)) {
-        input.textContent = input.textContent + 'Что за дивный символ... ';
+        input.innerHTML = input.innerHTML + 'Что за дивный символ... ' + "<br>";
       }
 
       if (input.validity.valid == false) {input.setCustomValidity(errorMessage.textContent);
       }
-    }, 2000);
+    }, 1000);
     }
   });
 
